@@ -3,7 +3,6 @@ package pro.sky.javacoursepart2.hw211.orderController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.SessionScope;
 import pro.sky.javacoursepart2.hw211.orderService.OrderService;
 
 @Controller // @ResponceBody added to methods (can be applied to class) for correct browser representation
