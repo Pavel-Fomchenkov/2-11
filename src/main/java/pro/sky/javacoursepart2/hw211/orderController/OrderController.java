@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.SessionScope;
 import pro.sky.javacoursepart2.hw211.orderService.OrderService;
 
-@Controller // нужно добавить перевод в json, т.к. это не @RestController который сам переводит в json
+@Controller // @ResponceBody added to methods (can be applied to class) for correct browser representation
 @RequestMapping("/order")
 public class OrderController {
     @Autowired
