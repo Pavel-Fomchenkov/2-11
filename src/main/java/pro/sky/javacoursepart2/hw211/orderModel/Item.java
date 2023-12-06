@@ -6,19 +6,16 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-@ConditionalOnProperty("id")
-public class Item {
-    private int id;
+// This class is for creating items with properties (item name, etc.)
+// No need to associate id's with Item objects right now, so Item class is not used
 
-
-//    public List<Item> getOrder() {
-//        return order;
-//    }
+// @Repository
+// @ConditionalOnProperty("id")
+// public class Item {
+//    private int id;
+//    private String name;
 //
-//    private List<Item> order = new ArrayList<Item>();
-
-    public Item(int id) {
-        this.id = id;
-    }
-}
+//    public Item(int id) {
+//        this.id = id;
+//    }
+//}
