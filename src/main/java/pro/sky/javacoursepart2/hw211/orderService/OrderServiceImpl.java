@@ -1,30 +1,37 @@
 package pro.sky.javacoursepart2.hw211.orderService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pro.sky.javacoursepart2.hw211.orderModel.Item;
+import org.springframework.stereotype.Service;
+import pro.sky.javacoursepart2.hw211.orderModel.IdBasket;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-//public class OrderServiceImpl implements OrderService{
+@Service
+public class OrderServiceImpl implements OrderService {
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private IdBasket basket;
 
-    private final ObjectMapper objectMapper;
-
-    private Item item;
-    private final List<Item> order = new ArrayList<>();
-
-    private OrderServiceImpl(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
+    public OrderServiceImpl(IdBasket basket) {
+        this.basket = basket;
     }
+
     @Override
     public void addItem(int... itemId) {
-        for (int id : itemId){
-            order.add(id);
+        for (int id : itemId) {
+            basket.getBasket().add(id);
+            System.out.println("Product " + id + " added to your basket.");
         }
     }
 
+    // ObjectMapper is redundant here. @ResponceBody or @RestController allows Spring to convert objects to json.
+    // Without @ResponceBody or @RestController browser will show errors outputting String or List object
     @Override
- //   public List<Item> getItems() {
-        return Item.getOrder();
+    public String getItems() {
+        try {
+            return objectMapper.writeValueAsString(basket.getBasket());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }
