@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 @SessionScope
 public class IdBasket {
-    private List<Integer> basket = new ArrayList<>();
+    private final List<Integer> basket = new ArrayList<>();
 
     public List<Integer> getBasket() {
         return basket;
