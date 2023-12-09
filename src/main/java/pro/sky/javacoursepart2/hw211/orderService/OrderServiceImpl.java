@@ -9,7 +9,7 @@ import java.io.IOException;
 @Service
 public class OrderServiceImpl implements OrderService {
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private IdBasket basket;
+    private final IdBasket basket;
 
     public OrderServiceImpl(IdBasket basket) {
         this.basket = basket;
